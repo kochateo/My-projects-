@@ -1,0 +1,37 @@
+coords_list = []
+
+
+#slope
+
+xs = []
+ys = []
+for numbers in coords_list:
+    if coords_list.index(numbers)%2 == 1:
+        ys.append(numbers)
+    else:
+        xs.append(numbers)
+
+slopes = []
+
+for numbers in xs[0:-1]:
+    slope = (ys[xs.index(numbers)]-ys[xs.index(numbers)+1])/(numbers-xs[xs.index(numbers)+1])
+    slopes.append(slope)
+
+avg_slope = sum(slopes)/len(slopes)
+
+print(avg_slope)
+# y-int
+
+x_multiples = []
+
+for numbers in xs[0:-1]:
+    x_multiples.append(numbers*slopes[xs.index(numbers)])
+
+y_ints = []
+
+for numbers in ys[0:-1]:
+    y_ints.append(numbers-x_multiples[ys.index(numbers)])
+
+y_int = sum(y_ints)/len(y_ints)
+
+print(y_int)
